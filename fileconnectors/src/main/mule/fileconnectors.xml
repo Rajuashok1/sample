@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="e0bda2bd-6fe1-4f2d-8d1a-42972b1aaafa" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<file:config name="File_Config" doc:name="File Config" doc:id="4e8c73be-4215-465d-a688-f452cbccda67" />
+	<flow name="fileconnectors" doc:id="abb80452-9917-43c8-9b65-ec0e3765ee0b" >
+		<http:listener doc:name="Listener" doc:id="8583a246-2650-4868-a2d3-3ba4cd5070d7" config-ref="HTTP_Listener_config" path="file"/>
+		<file:write doc:name="Write" doc:id="140a4bf3-11dd-4f82-a6d7-b3d19fe2b3ad" path="C:\Users\rajua\OneDrive\Desktop\abcde">
+			<file:content ><![CDATA[Hi welcome to write function]]></file:content>
+		</file:write>
+	</flow>
+</mule>
